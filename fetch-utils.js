@@ -26,6 +26,14 @@ export async function checkAuth() {
     if (!user) location.replace('../');
 }
 
-export async function redirectIfLoggedIn() {}
+export async function redirectIfLoggedIn() {
+    if (await getUser()) {
+        location.replace('./other-page');
+    }
+}
 
-export async function logout() {}
+export async function logout() {
+    await client.auth.signout();
+
+    return (window.location.href = '../');
+}
