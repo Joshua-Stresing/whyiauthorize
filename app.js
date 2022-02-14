@@ -12,9 +12,16 @@ const user = await getUser();
 // Wire up sign in and sign up forms to supabase
 signUpForm.addEventListener('submit', async (event)=>{
     event.preventDefault();
-    console.log(signInEmail.value, signUpPassword.value);
+    
     const user = await signupUser(signUpEmail.value, signUpPassword.value);
 });
+
+signInForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    
+    const user = await signInUser(signInEmail.value, signInPassword.value);
+});
+
 // Redirect to /other-page on successful auth
 
 // Redirect to /other-page when page loads if user is authenticated
