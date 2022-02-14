@@ -20,7 +20,11 @@ export async function signInUser(email, password) {
     return response.user;
 }
 
-export async function checkAuth() {}
+export async function checkAuth() {
+    const user = await getUser();
+
+    if (!user) location.replace('../');
+}
 
 export async function redirectIfLoggedIn() {}
 
